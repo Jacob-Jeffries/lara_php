@@ -37,7 +37,6 @@
 
   // id=:id also works (keyed value)
   // query($query, [':id' => $id])
-
   $query_string= "select * from posts where id=?";
   // dd($query_string);
 
