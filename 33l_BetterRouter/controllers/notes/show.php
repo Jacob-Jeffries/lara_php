@@ -11,12 +11,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     // dd($_POST);
     // dd($_GET);
 
+    // Checking the Note from the DB
     $note = $db->query('select * from notes where id = :id', [
         'id' => $_POST['id']
     ])->findOrFail();
 
     // dd($note);
 
+    // Checking if you are the author of the note
+    // written in the functions.php file
     authorize($note['user_id'] === $currentUserId);
 
 
@@ -27,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     header('Location: /notes');
     die();
 
-} else {
+    } else {
     $note = $db->query('select * from notes where id = :id', [
         'id' => $_GET['id']
     ])->findOrFail();
