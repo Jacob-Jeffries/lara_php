@@ -11,6 +11,12 @@
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+      <?php if (isset($errors)) : ?>
+        <p class="text-2xl text-red-500">User Already Exists</p>
+        <p>Email: <?= $errors['exists_email'] ?></p>
+        <br />
+        <br />
+      <?php endif ?>
 
 <!-- The Form Start Here -->
       <form class="space-y-6" action="/register" method="POST">

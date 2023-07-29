@@ -39,10 +39,21 @@ $results = $db->query('SELECT * FROM users WHERE users.email=:email', [
 
 if($results) {
   //redirect to login page
+  $errors['user_exists'] = 'User Account already exists';
+  $errors['exists_email'] = $email;
+  return view('users/create.view.php', [
+    'heading' => 'Errors Found',
+    'errors' => $errors,
+  ]);
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-  $db-
+  $results = $db->query('INSERT INTO users(id, email, password) VALUES(NULL, :email, :password)', [
+    'email' => $email,
+    'password' => $password,
+  ]);
+
+  dd($results);
 }
 
 ?>

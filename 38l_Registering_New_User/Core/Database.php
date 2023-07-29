@@ -9,7 +9,7 @@ class Database
     public $connection;
     public $statement;
 
-    public function __construct($config, $username = 'root', $password = 'password')
+    public function __construct($config, $username = 'lara_php', $password = 'password')
     {
         $dsn = 'mysql:' . http_build_query($config, '', ';');
 
@@ -21,6 +21,8 @@ class Database
     public function query($query, $params = [])
     {
         $this->statement = $this->connection->prepare($query);
+
+        // dd($this->statement);
 
         $this->statement->execute($params);
 
