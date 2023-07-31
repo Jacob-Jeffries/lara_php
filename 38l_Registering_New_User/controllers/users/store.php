@@ -38,22 +38,27 @@ $results = $db->query('SELECT * FROM users WHERE users.email=:email', [
 // dd($results);
 
 if($results) {
-  //redirect to login page
+  //redirect to login page -> to be made later
   $errors['user_exists'] = 'User Account already exists';
   $errors['exists_email'] = $email;
   return view('users/create.view.php', [
     'heading' => 'Errors Found',
     'errors' => $errors,
   ]);
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-  $results = $db->query('INSERT INTO users(id, email, password) VALUES(NULL, :email, :password)', [
+  exit();
+}else if($_SERVER['REQUEST_METHOD'] === 'POST'){
+  $db->query('INSERT INTO users(email, password) VALUES(:email, :password)', [
     'email' => $email,
-    'password' => $password,
+    'password' => $password
   ]);
 
-  dd($results);
+  $_SESSION['user_email'] = $email;
+  $_SESSION['logged_in'] = TRUE;
+
+  // dd($_SESSION);
+
+  header('Location: /');
+  exit();
 }
 
 ?>

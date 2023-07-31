@@ -11,7 +11,7 @@
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <?php if (isset($errors)) : ?>
+      <?php if (isset($errors['exists_email'])) : ?>
         <p class="text-2xl text-red-500">User Already Exists</p>
         <p>Email: <?= $errors['exists_email'] ?></p>
         <br />

@@ -1,9 +1,6 @@
 <?php
 
-// session_start();
-
-// $_SESSION['name'] = 'Jacob';
-// $_SESSION['phone'] = '906-227-2156';
+session_start();
 
 const BASE_PATH = __DIR__.'/../';
 
