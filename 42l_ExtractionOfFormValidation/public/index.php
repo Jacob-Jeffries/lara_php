@@ -1,14 +1,16 @@
 <?php
+// require '../../vendor/autoload.php';
+
+// const BASE_PATH = __DIR__.'/../';
+
+require '../Core/functions.php';
+
 
 session_start();
 
-const BASE_PATH = __DIR__.'/../';
-
-require BASE_PATH.'Core/functions.php';
-
 // dd(password_algos());
 
-// Put this before importing Classes!
+// Put this before importing Classes! - Using composer autoloader now
 spl_autoload_register(function ($class) {
     $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
 

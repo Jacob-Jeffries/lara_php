@@ -1,5 +1,14 @@
 {
     "require-dev": {
         "phpstan/phpstan": "^1.10"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/"
+        }
+    },
+    "require": {
+        "illuminate/collections": "^10.16"
     }
 }

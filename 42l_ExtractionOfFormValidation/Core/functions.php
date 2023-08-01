@@ -33,7 +33,7 @@ function authorize($condition, $status = Response::FORBIDDEN)
 
 function base_path($path)
 {
-    return BASE_PATH . $path;
+    return  __DIR__.'/../'. $path;
 }
 
 function view($path, $attributes = [])

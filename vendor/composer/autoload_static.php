@@ -7,7 +7,50 @@ namespace Composer\Autoload;
 class ComposerStaticInit07704d8b05c651633c66efe1b14aa9cb
 {
     public static $files = array (
+        '60799491728b879e74601d83e38b2cad' => __DIR__ . '/..' . '/illuminate/collections/helpers.php',
         '9b38cf48e83f5d8f60375221cd213eee' => __DIR__ . '/..' . '/phpstan/phpstan/bootstrap.php',
+    );
+
+    public static $prefixLengthsPsr4 = array (
+        'P' => 
+        array (
+            'Psr\\SimpleCache\\' => 16,
+            'Psr\\Container\\' => 14,
+        ),
+        'I' => 
+        array (
+            'Illuminate\\Support\\' => 19,
+            'Illuminate\\Contracts\\' => 21,
+        ),
+        'C' => 
+        array (
+            'Core\\' => 5,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Psr\\SimpleCache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/simple-cache/src',
+        ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Illuminate\\Support\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/collections',
+            1 => __DIR__ . '/..' . '/illuminate/conditionable',
+            2 => __DIR__ . '/..' . '/illuminate/macroable',
+        ),
+        'Illuminate\\Contracts\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/contracts',
+        ),
+        'Core\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Core',
+        ),
     );
 
     public static $classMap = array (
@@ -17,6 +60,8 @@ class ComposerStaticInit07704d8b05c651633c66efe1b14aa9cb
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInit07704d8b05c651633c66efe1b14aa9cb::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit07704d8b05c651633c66efe1b14aa9cb::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInit07704d8b05c651633c66efe1b14aa9cb::$classMap;
 
         }, null, ClassLoader::class);
